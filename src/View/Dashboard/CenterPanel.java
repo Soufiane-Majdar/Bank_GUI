@@ -3,13 +3,39 @@ package View.Dashboard;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
+
 import java.awt.*;
 
 public class CenterPanel extends JPanel {
 
 
-    JPanel topPanel, leftPanel ,rightPanel,footerPnel;
+    JPanel topPanel, centerPan ,rightPanel,footerPnel;
     JLabel title;
+
+    TableView table;
+    JScrollPane sp;
+
+
+    private void initTableView(){
+        table = new TableView(new DefaultTableModel());
+
+        Object[] data =new Object[]{"101","Majdar","Soufiane","SoufianeMJ","sf%&4lcj456mfpsFGhd","GB748","sofiane@mail.com","06 0000000","1023"};
+        String column[]={"ID","Nom","Prenom","Login","PssWord","CIN","Email","Tele","ID Agance"};
+
+        // Create a couple of columns 
+        table.addColumns(column);
+
+
+        for(int i=0;i<20;i++)
+        {
+            table.addRow(data);
+        }
+
+        sp=new JScrollPane(table);
+        sp.setBounds(10, 100, 580, 200);
+
+    }
 
 
 
@@ -18,14 +44,16 @@ public class CenterPanel extends JPanel {
         topPanel= new JPanel();
         topPanel.setBackground(new Color(202, 206, 245));
         topPanel.setBounds(10, 10, 590, 40);
+        
 
-        leftPanel= new JPanel();
-        leftPanel.setBackground(new Color(247, 249, 252));
-        leftPanel.setBounds(10, 50, 300, 320);
+        centerPan= new JPanel();
+        centerPan.setBackground(new Color(247, 249, 252));
+        centerPan.setBounds(10, 50, 600, 320);
+        centerPan.setLayout(null);
 
-        rightPanel= new JPanel();
-        rightPanel.setBackground(new Color(247, 249, 252));
-        rightPanel.setBounds(310, 50, 290, 320);
+        initTableView();
+        centerPan.add(sp);
+
 
         footerPnel= new JPanel();
         footerPnel.setBackground(new Color(199, 201, 215));
@@ -51,8 +79,9 @@ public class CenterPanel extends JPanel {
         initPanels();
         initLabels();
         add(topPanel);
-        add(leftPanel);
-        add(rightPanel);
+
+        add(centerPan);
+  
         add(footerPnel);
     }
 }
