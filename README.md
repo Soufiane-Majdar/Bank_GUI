@@ -18,6 +18,7 @@ Add more about your project and overview of use.
 ## Demo <a name = "demo"></a>
 
 <img src="git_img/Dashboard.png"></img>
+<img src="git_img/TableView.png.png"></img>
 
 ## Getting Started <a name = "getting_started"></a>
 
