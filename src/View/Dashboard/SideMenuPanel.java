@@ -15,6 +15,7 @@ public class SideMenuPanel extends JPanel {
     private Map<String, JLabel> Labels;
 
     private JLabel lbl_Logo;
+    public JLabel lbl_Auther;
     private ImageIcon img_Logo;
 
     private void initImages(){
@@ -36,6 +37,8 @@ public class SideMenuPanel extends JPanel {
         //////////////////////////////////
 
 
+
+
         Labels = new HashMap<>();
         AtomicInteger ic= new AtomicInteger();
         final int[] y = {80};
@@ -45,6 +48,7 @@ public class SideMenuPanel extends JPanel {
             lbl.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
             lbl.setBounds(0, y[0], 180, 50);
             y[0] = y[0] +50;
+
             //lbl.setHorizontalAlignment(JLabel.CENTER);
             lbl.setForeground(Color.gray);
             lbl.setIcon(new ImageIcon(imgs.get(ic.intValue()).getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH)));
@@ -65,6 +69,13 @@ public class SideMenuPanel extends JPanel {
             Labels.put(label,lbl);
             ic.getAndIncrement();
         });
+
+        lbl_Auther=new JLabel();
+        lbl_Auther.setBounds(10,430, 180, 50);
+        lbl_Auther.setText("<HTML><B>By:</B><U>Soufiane Majdar<U><HTML>");
+        lbl_Auther.setFont(new Font("Arial",Font.PLAIN,12));
+        lbl_Auther.setForeground(Color.gray);
+        lbl_Auther.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
     }
 
     public SideMenuPanel(List<String> lbls,List<ImageIcon> imgs){
@@ -81,6 +92,9 @@ public class SideMenuPanel extends JPanel {
         Labels.forEach((name,lbl)->{
             this.add(lbl);
         });
+
+        add(lbl_Auther);
+
 
     }
 

@@ -10,6 +10,7 @@ import java.awt.*;
 
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
+import java.beans.JavaBean;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.List;
@@ -23,6 +24,7 @@ public class CenterPanel extends JPanel {
 
     JPanel topPanel, centerPan ,rightPanel;
     JLabel title;
+    JButton btn_Action;
 
     TableView table;
     JScrollPane sp;
@@ -35,46 +37,99 @@ public class CenterPanel extends JPanel {
     private Map<String,JTextField> txts;
 
 
+    // public void initActionBTN(String btn_title)
+    // {
+    //     btn_Action.setText(btn_title);
+    // }
 
-    private void initTexts(){
-        txts = new HashMap<>();
-        //600
-        for(int i = 1; i<=table.getColumns().size();i++)
+    public void initTexts(String btn_title){
+
+        // txts.clear();
+
+        if(txts==null)
         {
-            // make bounds of textFealds to have 3 txt in a row 
-            int x = (i-1)%3;
-            int y = (i-1)/3;
-            JTextField txt = new JTextField();
-            String title =table.getColumns().get(i-1);
-            // set Placeholder
-            TextPrompt tp = new TextPrompt(title, txt);
-
-            // txt.addFocusListener(new FocusAdapter() {
-
-               
-            //     @Override
-            //     public void focusGained(FocusEvent e) {
-            //         txt.setText(title);
-            //     }
-
-            //     @Override
-            //     public void focusLost(FocusEvent e) {
-            //        txt.setText("");
-            //     }
-            // });
-
-            txt.setBounds(10+x*200, 10+y*40, 180, 30);
+            txts= new HashMap<>();
+                int x=0;
+                int y=0;
+                int i=0;
+                //600
+                for( i = 1; i<=table.getColumns().size();i++)
+                {
+                    // make bounds of textFealds to have 3 txt in a row 
+                    x = (i-1)%3;
+                    y = (i-1)/3;
+                    if(table.getColumns().get(i-1)!=null)
+                    {
+                    JTextField txt = new JTextField();
+                    String title =table.getColumns().get(i-1);
+                    // set Placeholder
+                    TextPrompt tp = new TextPrompt(title, txt);
+        
+                    txt.setBounds(10+x*200, 10+y*40, 180, 30);
+                    
+                    txts.put(table.getColumns().get(i-1),txt);
+        
+                
+                    tbl_marginTop=(10+y*40)+40;
+                    }
+                }
+        
+                x = (i-1)%3;
+                y = (i-1)/3;
+        
+          
+                    btn_Action = new JButton();
+                    btn_Action.setText(btn_title);
+                    System.out.println(btn_title);
+                    btn_Action.setBounds(10+x*200, 10+y*40, 120, 30);
+                    btn_Action.setBackground(new Color(103, 114, 226));
+                    btn_Action.setForeground(Color.WHITE);
+                    btn_Action.setFont(new Font("Arial", Font.BOLD,15));
+                    centerPan.add(btn_Action);
+        
+                
+        
+                // add txts to center Panel
+                for(i = 0; i<table.getColumns().size();i++)
+                {
+                    centerPan.add(txts.get(table.getColumns().get(i)));
+                }
             
-            txts.put(table.getColumns().get(i-1),txt);
-
-            tbl_marginTop=(10+y*40)+40;
-        }
-
-        // add txts to center Panel
-        for(int i = 0; i<table.getColumns().size();i++)
+        
+        
+                sp.setBounds(10, tbl_marginTop, 580, 200);
+        }  
+        else
         {
-            centerPan.add(txts.get(table.getColumns().get(i)));
+            btn_Action.setText(btn_title);
+            System.out.println(btn_title+" ex");
+            
+            if(btn_title=="Suprimer")
+            {
+                for(int i = 0; i<table.getColumns().size();i++)
+                {
+                    if(table.getColumns().get(i)!="Index" && table.getColumns().get(i)!="Login" && table.getColumns().get(i)!="CIN"&& table.getColumns().get(i)!="ID")
+                    {
+                    txts.get(table.getColumns().get(i)).setEnabled(false);
+                    txts.get(table.getColumns().get(i)).setBackground(new Color(211, 214, 215));
+                    }
+                }
+            }
+            else{
+                for(int i = 0; i<table.getColumns().size();i++)
+                {
+                    txts.get(table.getColumns().get(i)).setEnabled(true);
+                    txts.get(table.getColumns().get(i)).setBackground(Color.WHITE);
+
+                }
+            }
         }
+        
+        
+
+
+  
+
     }
 
 
@@ -117,10 +172,8 @@ public class CenterPanel extends JPanel {
         initTableView();
         centerPan.add(sp);
 
-        initTexts();
-        sp.setBounds(10, tbl_marginTop, 580, 200);
-        System.out.println(tbl_marginTop);
-
+        
+        
 
 
     }
