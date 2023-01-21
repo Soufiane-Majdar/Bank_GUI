@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Client extends Utilisateur{
     private String email, cin, tel;
-    private String sexe;
+    private Sexe sexe;
     private List<Compte> comptesClient = new ArrayList<>();
 
 
@@ -22,9 +22,9 @@ public class Client extends Utilisateur{
         return comptesClient;
     }
     public String getSexe() {
-        return sexe;
+        return sexe.toString();
     }
-    public void setSexe(String sexe) {
+    public void setSexe(Sexe sexe) {
         this.sexe = sexe;
     }
     public void         setEmail(String email) {
@@ -55,7 +55,7 @@ public class Client extends Utilisateur{
         setPrenom(p);
         comptesClient = new ArrayList<>();
     }
-    public Client(String login, String pass, String n, String p, String mail, String cin, String tel, String sexe){
+    public Client(String login, String pass, String n, String p, String mail, String cin, String tel, Sexe sexe){
         super(login, pass, "Client");
         setNom(n);
         setPrenom(p);
@@ -64,6 +64,16 @@ public class Client extends Utilisateur{
         setCin(cin);
         setSexe(sexe);
         comptesClient = new ArrayList<Compte>();
+    }
+
+    // setId
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    // getPassword
+    public String getPassword() {
+        return super.motDePasse;
     }
 
     @Override
