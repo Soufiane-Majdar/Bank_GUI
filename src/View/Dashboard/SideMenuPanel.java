@@ -72,7 +72,7 @@ public class SideMenuPanel extends JPanel {
 
         lbl_Auther=new JLabel();
         lbl_Auther.setBounds(10,430, 180, 50);
-        lbl_Auther.setText("<HTML><B>By:</B><U>Soufiane Majdar<U><HTML>");
+        lbl_Auther.setText("<HTML><B>By:</B> <a href=\"\">Soufiane Majdar<a><HTML>");
         lbl_Auther.setFont(new Font("Arial",Font.PLAIN,12));
         lbl_Auther.setForeground(Color.gray);
         lbl_Auther.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));

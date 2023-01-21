@@ -8,6 +8,14 @@ import java.awt.event.MouseEvent;
 import java.net.URI;
 import java.util.List;
 import java.util.Map;
+
+
+
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+
+
 public class Dashboard extends JFrame {
 
     IdentityPanel identitypanel;
@@ -43,11 +51,26 @@ public class Dashboard extends JFrame {
             public void mouseClicked(MouseEvent e)
             {
                 try {
-
-                    Desktop.getDesktop().browse(new URI("https://github.com/Soufiane-Majdar"));
+                    // url : https://github.com/Soufiane-Majdar
+                    // Descktop method not working try another methof:
+                    // https://stackoverflow.com/questions/5226212/how-to-open-the-default-webbrowser-using-java
+                    Runtime rt = Runtime.getRuntime();
+                    String url = "https://github.com/Soufiane-Majdar";
+                    String[] browsers = { "google-chrome", "firefox", "mozilla", "epiphany", "konqueror",
+                                                     "netscape", "opera", "links", "lynx" };
+                     
+                    StringBuffer cmd = new StringBuffer();
+                    for (int i = 0; i < browsers.length; i++)
+                        if(i == 0)
+                            cmd.append(String.format(    "%s \"%s\"", browsers[i], url));
+                        else
+                            cmd.append(String.format(" || %s \"%s\"", browsers[i], url)); 
+                        // If the first didn't work, try the next browser and so on
+                    
+                    rt.exec(new String[] { "sh", "-c", cmd.toString() });
                     
                     } catch (Exception e1) {
-            
+                        System.out.println("ERREUR: "+e1);
                     }
             }
         });
