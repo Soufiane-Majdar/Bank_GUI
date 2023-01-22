@@ -2,13 +2,12 @@ package View;
 
 import org.w3c.dom.ls.LSException;
 
-import Domain.Client;
-import Domain.Sexe;
-
 // using Model.DAO.ClientDao
 
-import Model.DAO.ClientDao;
-import Model.DAO.FileBasePaths;
+import Model.dao.Impl.*;
+import Model.Domain.Client;
+import Model.Domain.Sexe;
+import Model.dao.*;
      
 
 

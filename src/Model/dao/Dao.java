@@ -9,7 +9,7 @@ public interface Dao<T> {
 
     // Create
     boolean save(T item);
-    boolean save(List<T> items);
+    boolean saveAll(List<T> items);
 
     // Update
     boolean update(T item);
@@ -20,6 +20,6 @@ public interface Dao<T> {
     boolean delete(List<T> items);
     boolean deleteById(int id);
 
-    
+
 
 }

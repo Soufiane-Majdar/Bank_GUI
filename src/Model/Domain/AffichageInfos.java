@@ -1,4 +1,4 @@
-package Domain;
+package Model.Domain;
 
 public interface AffichageInfos {
     void afficherBref();

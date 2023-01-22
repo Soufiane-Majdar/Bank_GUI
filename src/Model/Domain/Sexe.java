@@ -1,4 +1,4 @@
-package Domain;
+package Model.Domain;
 
 public enum Sexe {
     HOMME(0,"H", "Homme"), FEMME(1,"F", "Femme");
