@@ -8,12 +8,12 @@ import java.nio.file.Paths;
 public interface FileBasePaths {
 
     Path BASE_PATH = Paths.get("Files");
-    Path CLIENT_TABLE = Paths.get(BASE_PATH +"Clients.txt");
+    Path CLIENT_TABLE = Paths.get(BASE_PATH +"/Clients.txt");
     Path CLIENTINDEX = Paths.get(BASE_PATH + "/clientsIndexes.txt");
-    Path ADMIN_TABLE = Paths.get(BASE_PATH +"Admins.txt");
-    Path COMPTE_TABLE = Paths.get(BASE_PATH +"Comptes.txt");
-    Path OPERATION_TABLE = Paths.get(BASE_PATH +"Operations.txt");
-    Path LOG_TABLE = Paths.get(BASE_PATH +"Logs.txt");
+    Path ADMIN_TABLE = Paths.get(BASE_PATH +"/Admins.txt");
+    Path COMPTE_TABLE = Paths.get(BASE_PATH +"/Comptes.txt");
+    Path OPERATION_TABLE = Paths.get(BASE_PATH +"/Operations.txt");
+    Path LOG_TABLE = Paths.get(BASE_PATH +"/Logs.txt");
 
     static void createFileBaseTables(){
         if(!BASE_PATH.toFile().exists()){

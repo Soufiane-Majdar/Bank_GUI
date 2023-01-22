@@ -1,4 +1,4 @@
-package Model;
+package Domain;
 
 public interface AffichageInfos {
     void afficherBref();

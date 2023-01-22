@@ -1,8 +1,6 @@
 package Model.DAO;
 
 import Model.DAO.IDao;
-import Model.Client;
-import Model.Sexe;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -11,6 +9,9 @@ import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
+
+import Domain.Client;
+import Domain.Sexe;
 
 
 public class ClientDao  implements IDao<Client, Long> {
