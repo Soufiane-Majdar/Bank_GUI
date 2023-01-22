@@ -2,3 +2,7 @@ id			nom			prenom			login			password			cin			tel			email			sexe
 1			nom			prenom			login			pass			cin			tel			email			HOMME
 2			nom			prenom			login			pass			cin			tel			email			HOMME
 3			nom			prenom			login			pass			cin			tel			email			HOMME
+4			nom			prenom			login			pass			cin			tel			email			HOMME
+5			nom			prenom			login			pass			cin			tel			email			HOMME
+6			nom			prenom			login			pass			cin			tel			email			HOMME
+7			nom			prenom			login			pass			cin			tel			email			HOMME

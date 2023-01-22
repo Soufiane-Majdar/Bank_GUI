@@ -123,7 +123,22 @@ public class Dashboard extends JFrame {
     }
 
 
-    public static void main(String[] args) {
-        new Dashboard("D A S H B O A R D");
+
+    // geters
+    public IdentityPanel getIdentitypanel() {
+        return identitypanel;
     }
+
+
+    public SideMenuPanel getMenupanel() {
+        return menupanel;
+    }
+
+
+    public CenterPanel getCenterpanel() {
+        return centerpanel;
+    }
+
+
+
 }

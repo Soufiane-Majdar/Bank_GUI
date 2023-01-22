@@ -124,12 +124,6 @@ public class CenterPanel extends JPanel {
                 }
             }
         }
-        
-        
-
-
-  
-
     }
 
 
@@ -151,6 +145,8 @@ public class CenterPanel extends JPanel {
         sp=new JScrollPane(table);
         
 
+        centerPan.add(sp);
+
     }
 
 
@@ -170,7 +166,6 @@ public class CenterPanel extends JPanel {
 
 
         initTableView();
-        centerPan.add(sp);
 
         
         
@@ -198,8 +193,75 @@ public class CenterPanel extends JPanel {
         add(topPanel);
 
         add(centerPan);
-  
      
     }
+
+    // geters
+    public JButton getBtn_Action() {
+        return btn_Action;
+    }
+
+    public Map<String, JTextField> getTxts() {
+        return txts;
+    }
+
+    public TableView getTable() {
+        return table;
+    }
+
+    public void setTable(TableView table) {
+        this.table = table;
+    }
+
+    public JScrollPane getSp() {
+        return sp;
+    }
+
+    public void setSp(JScrollPane sp) {
+        this.sp = sp;
+    }
+
+    public Object[] getData() {
+        return data;
+    }
+
+    public void setData(Object[] data) {
+        this.data = data;
+    }
+
+    public Object[] getColumn() {
+        return column;
+    }
+
+    public void setColumn(Object[] column) {
+        this.column = column;
+    }
+
+    public void setTxts(Map<String, JTextField> txts) {
+        this.txts = txts;
+    }
+
+    public void setBtn_Action(JButton btn_Action) {
+        this.btn_Action = btn_Action;
+    }
+
+    public void setTitle(JLabel title) {
+        this.title = title;
+    }
+
+    public void setTopPanel(JPanel topPanel) {
+        this.topPanel = topPanel;
+    }
+
+    public void setCenterPan(JPanel centerPan) {
+        this.centerPan = centerPan;
+    }
+
+    public void setTbl_marginTop(int tbl_marginTop) {
+        this.tbl_marginTop = tbl_marginTop;
+    }
+
+
+    
 }
 

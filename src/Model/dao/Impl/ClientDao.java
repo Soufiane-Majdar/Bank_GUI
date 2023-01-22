@@ -113,7 +113,8 @@ public class ClientDao implements Dao<Client>{
 
     @Override
     public boolean update(Client item) {
-        // TODO Auto-generated method stub
+        // update
+        //id			nom			prenom			login			password			cin			tel			email			sexe
         return false;
     }
 

@@ -1,10 +1,11 @@
-package View;
+package Controller;
 
 import org.w3c.dom.ls.LSException;
 
 // using Model.DAO.ClientDao
 
 import Model.dao.Impl.*;
+import View.Dashboard.Dashboard;
 import Model.Domain.Client;
 import Model.Domain.Sexe;
 import Model.dao.*;
@@ -26,6 +27,12 @@ public class CRUD_Client {
 
         ClientDao clientDao = new ClientDao();
         Client client = new Client("login", "pass", "nom", "prenom", "email", "cin", "tel", Sexe.HOMME);
-        clientDao.save(client);    }
+        clientDao.save(client);   
+    
+    
+        Dashboard dash= new Dashboard("D A S H B O A R D");
+
+      
+    }
     
 }
