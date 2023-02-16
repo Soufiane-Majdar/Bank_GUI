@@ -7,7 +7,6 @@
 - [Getting Started](#getting_started)
 - [Usage](#usage)
 - [Authors](#authors)
-- [License](#license)
 - [Contact](#contact)
 - [Project Status](#status)
 
@@ -17,50 +16,22 @@ Add more about your project and overview of use.
 
 ## Demo <a name = "demo"></a>
 
-<img src="git_img/Dashboard.png"></img>
-<img src="git_img/TableView.png"></img>
+<video src="git_img/Bank_Gui.mkv"></video>
+<img src="git_img/Dachboard.png"/>
 
 ## Getting Started <a name = "getting_started"></a>
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
-### Prerequisites
-
-What things you need to install the software and how to install them.
-
-```
-Give examples
-```
+Le projet banque en Java avec JFrame est une application de bureau qui permet de simuler des opérations bancaires de base. Cette application utilise la programmation orientée objet en Java pour gérer les différents aspects de la banque, tels que les clients, les comptes, les transactions et les opérations bancaires.
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running.
-
-Say what the step will be
-
 ```
-Give the example
+git clone https://github.com/Soufiane-Majdar/Bank_GUI.git
 ```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo.
-
-## Usage <a name = "usage"></a>
-
-Add notes about how to use the system.
 
 ## ✍️ Authors <a name = "authors"></a>
 
 - [@Soufiane-Majdar](https://github.com/Soufiane-Majdar)
-
-## 📝 License <a name = "license"></a>
-
-This project is licensed under the MIT License - see the LICENSE.md file for details
 
 ## 📝 Contact <a name = "contact"></a>
 

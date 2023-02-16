@@ -10,14 +10,16 @@ import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.List;
+import Model.Domain.Client;
 
 
 public class TableView extends JTable {
 
-     
+    private String[]    columnsNames;
+    private Object[][]  data;
     static int  index;
-    
-    
+
+
 
     public TableView(DefaultTableModel model){
         super(model);
@@ -39,38 +41,46 @@ public class TableView extends JTable {
 
 
 
-    // ADD Columns
-    public void addColumns(Object[] columns)
+    // // ADD Columns
+    public void addColumns(String... colNames)
     {
-        // add "Index" to Comluns
-        Object[] newColumns = new Object[columns.length+1];
-        newColumns[0]="Index";
-        for(int i=0;i<columns.length;i++)
-        {
-            newColumns[i+1]=columns[i];
-        }
-        columns=newColumns;
-
         DefaultTableModel model = (DefaultTableModel) this.getModel();
-        model.setColumnIdentifiers(columns);
-
+        for(String colName : colNames)
+        {
+            model.addColumn(colName);
+        }
     }
 
     // ADD Row
     public void addRow(Object[] data)
     {
         // add index to data
-        Object[] newData = new Object[data.length+1];
-        newData[0]=index;
+        Object[] newData = new Object[data.length];
         for(int i=0;i<data.length;i++)
         {
-            newData[i+1]=data[i];
+            newData[i]=data[i];
         }
         data=newData;
 
         DefaultTableModel model = (DefaultTableModel) this.getModel();
         model.addRow(data);
-        index++;
+    }
+
+    // ADD one client
+    public void addClient(Client c)
+    {
+        this.addRow(new Object[]{c.getId(),c.getNom(),c.getPrenom(),c.getLogin(),c.getMotDePasse(),c.getCin(),c.getEmail(),c.getTel(),c.getSexe()});
+    }
+    
+    public void initClientsData(List<Client> clients)
+    {
+        // delet all rows evry time
+        DefaultTableModel model = (DefaultTableModel) this.getModel();
+        model.setRowCount(0);
+        for(Client c : clients)
+        {
+            this.addRow(new Object[]{c.getId(),c.getNom(),c.getPrenom(),c.getLogin(),c.getMotDePasse(),c.getCin(),c.getEmail(),c.getTel(),c.getSexe()});
+        }
     }
  
     // get columns names

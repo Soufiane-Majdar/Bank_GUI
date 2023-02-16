@@ -6,3 +6,6 @@ id			nom			prenom			login			password			cin			tel			email			sexe
 5			nom			prenom			login			pass			cin			tel			email			HOMME
 6			nom			prenom			login			pass			cin			tel			email			HOMME
 7			nom			prenom			login			pass			cin			tel			email			HOMME
+8			nom			prenom			login			pass			cin			tel			email			HOMME
+9			nom			prenom			login			pass			cin			tel			email			HOMME
+10			nom			prenom			login			pass			cin			tel			email			HOMME

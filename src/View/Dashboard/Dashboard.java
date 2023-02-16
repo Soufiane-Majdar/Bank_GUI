@@ -77,7 +77,7 @@ public class Dashboard extends JFrame {
 
     }
 
-    private void iniPanels(){
+    private void iniPanelAdmin(){
 
         List<String> labelsNames= List.of("Ajouter","Modifier","Suprimer","Chercher","Trier");
         identitypanel= new IdentityPanel(labelsNames.get(0));
@@ -95,14 +95,14 @@ public class Dashboard extends JFrame {
         centerpanel.initTexts(labelsNames.get(0));
         // centerpanel.initActionBTN(labelsNames.get(0));
 
-        
-        
-
     }
 
 
     public Dashboard(String title){
-        iniPanels();
+
+        if (title=="D A S H B O A R D | Admin") {
+        iniPanelAdmin();
+        }
 
 
         setTitle(title);

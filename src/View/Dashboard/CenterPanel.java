@@ -11,11 +11,15 @@ import java.awt.*;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.beans.JavaBean;
+import java.text.NumberFormat.Style;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.List;
 
 import javax.swing.text.JTextComponent;
+
+import Model.Domain.Client;
+import dao.daoFiles.ClientDao;
 
 
 
@@ -33,6 +37,7 @@ public class CenterPanel extends JPanel {
     Object[] column;
 
     int tbl_marginTop=0;
+    JComboBox<String> sexe;
 
     private Map<String,JTextField> txts;
 
@@ -55,7 +60,7 @@ public class CenterPanel extends JPanel {
                 //600
                 for( i = 1; i<=table.getColumns().size();i++)
                 {
-                    // make bounds of textFealds to have 3 txt in a row 
+                    // make bounds of textFealds to have 3 txt and the last one 'sexe' as Combobox in a row 
                     x = (i-1)%3;
                     y = (i-1)/3;
                     if(table.getColumns().get(i-1)!=null)
@@ -73,6 +78,22 @@ public class CenterPanel extends JPanel {
                     tbl_marginTop=(10+y*40)+40;
                     }
                 }
+
+                // add combobox sexe
+
+                sexe = new JComboBox<String>();
+                sexe.addItem("HOMME");
+                sexe.addItem("FEMME");
+                sexe.setBounds(10+x*200, 10+y*40, 180, 30);
+                //Style
+                sexe.setBackground(Color.WHITE);
+                sexe.setForeground(Color.BLACK);
+                sexe.setFont(new Font("Arial", Font.ITALIC,15));
+                
+                centerPan.add(sexe);
+                tbl_marginTop=(10+y*40)+40;
+                // add btns to center Panel
+
         
                 x = (i-1)%3;
                 y = (i-1)/3;
@@ -90,14 +111,14 @@ public class CenterPanel extends JPanel {
                 
         
                 // add txts to center Panel
-                for(i = 0; i<table.getColumns().size();i++)
+                for(i = 0; i<table.getColumns().size()-1;i++)
                 {
                     centerPan.add(txts.get(table.getColumns().get(i)));
                 }
             
         
         
-                sp.setBounds(10, tbl_marginTop, 580, 200);
+                sp.setBounds(10, tbl_marginTop+40, 580, 200);
         }  
         else
         {
@@ -108,7 +129,7 @@ public class CenterPanel extends JPanel {
             {
                 for(int i = 0; i<table.getColumns().size();i++)
                 {
-                    if(table.getColumns().get(i)!="Index" && table.getColumns().get(i)!="Login" && table.getColumns().get(i)!="CIN"&& table.getColumns().get(i)!="ID")
+                    if(table.getColumns().get(i)!="Id" )
                     {
                     txts.get(table.getColumns().get(i)).setEnabled(false);
                     txts.get(table.getColumns().get(i)).setBackground(new Color(211, 214, 215));
@@ -127,26 +148,18 @@ public class CenterPanel extends JPanel {
     }
 
 
+
+
     private void initTableView(){
         table = new TableView(new DefaultTableModel());
-
-        data =new Object[]{"101","Majdar","Soufiane","SoufianeMJ","sf%&4lcj456mfpsFGhd","GB748","sofiane@mail.com","06 0000000","1023"};
-        column=new Object[]{"ID","Nom","Prenom","Login","PssWord","CIN","Email","Tele","ID Agance"};
-
-        // Create a couple of columns 
-        table.addColumns(column);
-
-
-        for(int i=0;i<20;i++)
-        {
-            table.addRow(data);
-        }
-
+        //data =new Object[]{"101","Majdar","Soufiane","SoufianeMJ","sf%&4lcj456mfpsFGhd","GB748","sofiane@mail.com","06 0000000","1023"};
+        // column=new Object[]{"ID","Nom","Prenom","Login","PssWord","CIN","Email","Tele","ID Agance"};
+        // // Create a couple of columns 
+        table.addColumns("Id", "Nom", "Prénom",
+        "Login", "Pass", "Cin", "Email", "Tel", "Sexe");
+        table.initClientsData(new ClientDao().findAll());
         sp=new JScrollPane(table);
-        
-
         centerPan.add(sp);
-
     }
 
 
@@ -164,23 +177,19 @@ public class CenterPanel extends JPanel {
         centerPan.setLayout(null);
 
 
-
         initTableView();
-
-        
-        
-
-
     }
 
     private void initLabels(){
         title= new JLabel();
-        title.setText("<HTML><U>Formulaire Admin</U><HTML>");
         title.setForeground(new Color(58, 51, 122));
         title.setBorder(new EmptyBorder(6,0,0,0));
         title.setFont(new Font("Arale",Font.BOLD,17));
         topPanel.add(title);
+    }
 
+    public void setTitle(String txt){
+        title.setText(txt);
     }
 
 
@@ -259,6 +268,10 @@ public class CenterPanel extends JPanel {
 
     public void setTbl_marginTop(int tbl_marginTop) {
         this.tbl_marginTop = tbl_marginTop;
+    }
+    //get sexe
+    public JComboBox getSexe() {
+        return sexe;
     }
 
 
