@@ -16,7 +16,7 @@ Add more about your project and overview of use.
 
 ## Demo <a name = "demo"></a>
 
-<video src="git_img/Bank_Gui.mkv"></video>
+<video src="https://drive.google.com/file/d/1TUZFB0Rx3GZMVqbglmhYbRbLWaIKRnAW/view?usp=sharing"></video>
 <img src="git_img/Dachboard.png"/>
 
 ## Getting Started <a name = "getting_started"></a>
